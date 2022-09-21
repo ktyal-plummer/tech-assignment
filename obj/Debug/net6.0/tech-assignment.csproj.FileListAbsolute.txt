@@ -1,0 +1,15 @@
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\bin\Debug\net6.0\tech-assignment.exe
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\bin\Debug\net6.0\tech-assignment.deps.json
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\bin\Debug\net6.0\tech-assignment.runtimeconfig.json
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\bin\Debug\net6.0\tech-assignment.dll
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\bin\Debug\net6.0\tech-assignment.pdb
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.csproj.AssemblyReference.cache
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.AssemblyInfoInputs.cache
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.AssemblyInfo.cs
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.csproj.CoreCompileInputs.cache
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.dll
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\refint\tech-assignment.dll
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.pdb
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\tech-assignment.genruntimeconfig.cache
+C:\Users\ktyal\Documents\vsc-projects\tech-assignment\obj\Debug\net6.0\ref\tech-assignment.dll
