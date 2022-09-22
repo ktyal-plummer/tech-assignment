@@ -37,23 +37,43 @@ namespace TechAssignment
             return false;
         }
 
-        // TODO: Start doing things with the read in lines
-        public static void readFile(string filePath)
+        /// <summary>
+        /// Reads through a given file and tries to validate the email addresses
+        /// </summary>
+        /// <param name="filePath">The path used to get to the file</param>
+        /// <returns>A new EmailValidator which will have the lists of sorted emails</returns>
+        public static EmailValidator readFile(string filePath)
         {
-            using (FileStream fs = File.Open(filePath, FileMode.Open))
-            {
-                byte[] b = new byte[1024];
-                UTF8Encoding temp = new UTF8Encoding(true);
+            EmailValidator validator = new EmailValidator();
+            int enrtyNumber = 0;
 
-                Console.WriteLine();
-                Console.WriteLine("Validating .. '{0}'", filePath);
-                while (fs.Read(b, 0, b.Length) > 0)
-                {
-                    Console.WriteLine(temp.GetString(b));
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string? currentLine;
+                while ((currentLine = reader.ReadLine()) != null) {
+                    enrtyNumber++;
+
+                    // Try to find and validate the email, otherwise output an error
+                    try {
+                        string[] seperatedLine = currentLine.Split(',');
+                        string emailToValidate = seperatedLine[2];
+                        validator.validate(emailToValidate);
+
+                    } catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("<ERROR> Invalid entry on line: {0}", enrtyNumber);
+                    }
                 }
             }
+
+            return validator;
         }
 
+        /// <summary>
+        /// Makes sure the inputed file name has the correct extension
+        /// </summary>
+        /// <param name="originalFileName">The user inputed file name</param>
+        /// <returns>A file name with a .csv extension or an empty string if null was given</returns>
         public static string addFileExtension(string? originalFileName)
         {
             string? newFileName = originalFileName;
