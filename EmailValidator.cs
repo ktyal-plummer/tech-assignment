@@ -11,9 +11,9 @@ namespace TechAssignment
         public EmailValidator() {}
 
         /// <summary>
-        /// Validates and sorts a given email address
+        /// Sorts a given email address as valid or invalid
         /// </summary>
-        /// <param name="email">The name of the file to search for</param>
+        /// <param name="email">The email to be validated</param>
         public void validate(string email)
         {
             if (isValidEmail(email))
@@ -82,7 +82,7 @@ namespace TechAssignment
             return validEmails;
         }
 
-        /// <returns>The list of invalid input addresses</returns>
+        /// <returns>The list of invalid email addresses</returns>
         public List<string> getInvalidEmails()
         {
             return invalidEmails;

@@ -15,24 +15,52 @@
             // Main loop
             while (true)
             {
+                bool exitProgram = false;
+
                 // Get the searching directory from user
                 if (fileDirectory == "" || fileDirectory == null)
                 {
-                    Console.WriteLine();
-                    Console.Write("Please enter a valid directory to search: ");
-                    fileDirectory = Console.ReadLine();
-                    if (fileDirectory == "q" || fileDirectory == "quit")
+                    while (true)
                     {
-                        break;
+                        Console.WriteLine();
+                        Console.Write("Please enter a valid directory to search: ");
+                        fileDirectory = Console.ReadLine();
+                        
+                        // Remove leading and trailing whitespace
+                        if (fileDirectory != null)
+                        {
+                            fileDirectory = fileDirectory.Trim();
+                        }
+
+                        if (fileDirectory == "q" || fileDirectory == "quit")
+                        {
+                            exitProgram = true;
+                            break;
+                        } 
+                        else if (FileManager.isValidDirectory(fileDirectory))
+                        {
+                            break;
+                        }
                     }
                 }
 
-                // TODO: remove starting/ending whitespace from userinput
+                // Allows for the program to be closed from the directory prompt
+                if (exitProgram)
+                {
+                    break;
+                }
+
                 // Get user input and check if it's a command or file name
                 Console.WriteLine();
                 Console.Write("Please enter a valid file name: ");
                 userInput = Console.ReadLine();
 
+                // Remove leading and trailing whitespace
+                if (userInput != null)
+                {
+                    userInput = userInput.Trim();
+                }
+                
                 if (userInput == "set" || userInput == "s")
                 {
                     fileDirectory = "";
@@ -45,14 +73,15 @@
                 {
                     // Check if the user added the '.csv' to the end of their file search
                     userInput = FileManager.addFileExtension(userInput);
+                    string completeFilePath = FileManager.generateFilePath(userInput, fileDirectory);
 
-                    if (FileManager.canFindFile(userInput, fileDirectory))
+                    if (FileManager.isValidFilePath(completeFilePath))
                     {
-                        string fileLocation = fileDirectory + "/" + userInput;
-                        EmailValidator sortedEmails = FileManager.readFile(fileLocation);
+                        EmailValidator sortedEmails = FileManager.readFile(completeFilePath);
                         List<string> validEmails = sortedEmails.getValidEmails();
                         List<string> invalidEmails = sortedEmails.getInvalidEmails();
 
+                        Console.WriteLine();
                         // Output all valid emails if there are any
                         if (validEmails.Count > 0)
                         {

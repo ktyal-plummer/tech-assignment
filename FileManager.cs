@@ -5,36 +5,68 @@ namespace TechAssignment
     class FileManager
     {
         /// <summary>
-        /// Makes sure a file can be found within a specified directory. Logs error messages to the user 
+        /// Checks to make sure the given directory can be found
         /// </summary>
-        /// <param name="fileName">The name of the file to search for</param>
-        /// <param name="fileDirectory">The directory to search for the file</param>
-        /// <returns>Whether or not the file could be found in the directory</returns>
-        public static bool canFindFile(string? fileName, string? fileDirectory)
+        /// <param name="fileDirectory">The directory being searched for</param>
+        /// <returns>Whether or not the directory given was valid</returns>
+        public static bool isValidDirectory(string? fileDirectory)
         {
-            if (fileName != null && fileDirectory != null)
+            if (fileDirectory != null)
             {
-                // Check to make sure the directory exists 
                 if (Directory.Exists(fileDirectory))
                 {
-                    // Check to make sure there is a file with the correct name in the directory
-                    string pathToFile = fileDirectory + "/" + fileName;
-                    if (File.Exists(pathToFile))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("<ERROR> No such file '{0}' exsits in directory: '{1}'.", fileName, fileDirectory);
-                    }
+                    return true;
                 }
-                else
+                else 
                 {
                     Console.WriteLine("<ERROR> No such directory exsits on path: '{0}'.", fileDirectory);
                 }
             }
+            return false;
+        }
+
+        /// <summary>
+        /// Used to verify a file can be found on a specified path 
+        /// </summary>
+        /// <param name="pathToFile">The complete path to the file</param>
+        /// <returns>Whether or not the file could be found on the path</returns>
+        public static bool isValidFilePath(string pathToFile)
+        {
+            if (File.Exists(pathToFile))
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("<ERROR> No such file exsits on path '{0}'", pathToFile);
+            }
 
             return false;
+        }
+
+        /// <summary>
+        /// Creates the complete path to a file using its name and target directory
+        /// </summary>
+        /// <param name="fileName">The given name of the file</param>
+        /// <param name="fileDirectory">The directory the file should be located in</param>
+        /// <returns>A string containing the complete file path</returns>
+        public static string generateFilePath(string fileName, string? fileDirectory)
+        {
+            string completePath = "";
+
+            if (fileDirectory != null)
+            {
+                if (fileDirectory.EndsWith('/'))
+                {
+                    completePath = fileDirectory + fileName;
+                }
+                else
+                {
+                    completePath = fileDirectory + "/" + fileName;
+                }
+            }
+
+            return completePath;
         }
 
         /// <summary>
@@ -61,6 +93,7 @@ namespace TechAssignment
 
                     } catch (IndexOutOfRangeException)
                     {
+                        // CSV was not in the correct format 
                         Console.WriteLine("<ERROR> Invalid entry on line: {0}", enrtyNumber);
                     }
                 }
@@ -70,7 +103,7 @@ namespace TechAssignment
         }
 
         /// <summary>
-        /// Makes sure the inputed file name has the correct extension
+        /// Makes sure the inputed file name has the correct extension or adds it
         /// </summary>
         /// <param name="originalFileName">The user inputed file name</param>
         /// <returns>A file name with a .csv extension or an empty string if null was given</returns>
