@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace TechAssignment
 {
     /// <summary>
-    /// Allows for emails to be validated and holds the necessary valid & invalid emails list
+    /// Allows for emails to be validated and holds the necessary valid and invalid emails list
     /// </summary>
     class EmailValidator
     {
