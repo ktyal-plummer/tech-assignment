@@ -5,13 +5,16 @@ A .NET console application that searches a directory for a user specified .csv f
 Requires .NET 6.0
 
 To start:
+
     git clone https://github.com/ktyal-plummer/tech-assignment.git
 
 ## Usage 
 Typing `quit` or `q` during any prompt will exit the program
+
 Typing `set` or `s` will prompt you to set a directroy
 
 Starting the program:
+
     dotnet run
 
 Follow the prompts
