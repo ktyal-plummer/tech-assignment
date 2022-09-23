@@ -2,6 +2,9 @@ using System.Text;
 
 namespace TechAssignment
 {
+    /// <summary>
+    /// Contains all methods needed to get to, validate, and read from a file.
+    /// </summary>
     class FileManager
     {
         /// <summary>
