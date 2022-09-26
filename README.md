@@ -17,4 +17,15 @@ Starting the program:
 
     dotnet run
 
-Follow the prompts
+To use the testing directory input:
+    
+    Please enter a valid directory to search: ./testdir
+    
+To prase a file within the test directory:
+
+    Please enter a valid file name: valid
+    
+or 
+
+    Please enter a valid file name: valid.csv
+
