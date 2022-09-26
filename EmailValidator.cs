@@ -8,8 +8,8 @@ namespace TechAssignment
     /// </summary>
     class EmailValidator
     {
-        List<string> validEmails = new List<string>();
-        List<string> invalidEmails = new List<string>();
+        private List<string> validEmails = new List<string>();
+        private List<string> invalidEmails = new List<string>();
 
         public EmailValidator() {}
 
